@@ -17,4 +17,6 @@ Some goals:
 
 * See `learn-terraform-local-aws-example/main.tf` for an example created for this tutorial. Note after the terraform init with state created locally, the added .gitignore since terraform state can contain sensitive info. For more information: https://dev.to/loujaybee/should-you-commit-the-terraform-tfstate-file-to-git-5054
 
+*Note that I edited the EC2 Image IDs based on amazon images from within the current region, us-east-1, since the tutorial is based on us-west.
+
 * Assuming graphviz is installed from: http://www.graphviz.org/ run the following command in the terraform director to output a graph representing the current plan using terraform graph, which produces graphviz .dot file output, redirecting via stdin to graphviz dot command, and create a png file of the current plan: `terraform graph | dot -Tpng -o graphvizplan.png`
