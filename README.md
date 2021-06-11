@@ -20,3 +20,10 @@ Some goals:
 *Note that I edited the EC2 Image IDs based on amazon images from within the current region, us-east-1, since the tutorial is based on us-west.
 
 * Assuming graphviz is installed from: http://www.graphviz.org/ run the following command in the terraform director to output a graph representing the current plan using terraform graph, which produces graphviz .dot file output, redirecting via stdin to graphviz dot command, and create a png file of the current plan: `terraform graph | dot -Tpng -o graphvizplan.png`
+
+# Local run with S3 Backend
+
+* Looking at https://www.terraform.io/docs/language/settings/backends/s3.html to get a sense of using an S3 backend
+
+* I'm starting by creating a terraform managed directory in `/remote-state-bucket-infra` to create an actual S3 bucket. This is not the Terraform which has an S3 backend, this is Terraform to create an S3 bucket that can be used in a future terraform setup.
+
