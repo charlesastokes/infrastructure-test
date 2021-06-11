@@ -27,3 +27,10 @@ Some goals:
 
 * I'm starting by creating a terraform managed directory in `/remote-state-bucket-infra` to create an actual S3 bucket. This is not the Terraform which has an S3 backend, this is Terraform to create an S3 bucket that can be used in a future terraform setup.
 
+* The folder `example-terraform-with-s3-backend` uses the above mentioned created S3 bucket as a backend and has the same code as our first local example for spinning up an Amazon Linux Server.
+
+* Note that I ran into two odd things - 1. The bucket didn't block public access .. I don't know if maybe it would have having set acl private. Maybe there is another setting for this. I guess this is a TODO. For the time being I manually blocked all public access in the console (since TF state files have access keys in them) 2. The bucket didn't seem to have versioning by default even though I thought I enabled it. For the time being I enabled it on the console, I guess this is a TODO to circle back to since versioning is important for disaster recover.
+
+* Future TODO enable locking by setting up a dynamo database. For now the lock is local in the github repo.
+
+* Note - now we enter the arena where TFE would be nice. Collaboration is still tricky without TFE. See a nice explanation of the collaboration model here: https://dev.to/theodesp/using-terraform-remote-state-for-collaboration-4661
